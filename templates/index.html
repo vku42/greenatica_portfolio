@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vikash Upadhyay Portfolio Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li class="nav-btn"><a href="#">Home</a></li>
+                    <li class="nav-btn"><a href="#">About</a></li>
+                    <li class="nav-btn"><a href="#">Work</a></li>
+                    <li class="nav-btn"><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="hero">
+            <p id="typing-text"></p>
+
+            <div class="planet">
+                <h2>Greenatica</h2>
+            </div>
+
+        </section>
+        <div class="dash">
+            <img class="dash_board" src="/static/images/dash.png" alt="">
+        </div>
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const textElement = document.getElementById('typing-text');
+            const texts = [
+                "Welcome to Greenatica!",
+                "Explore with me, Vikash Upadhyay,",
+                "your guide, on this cosmic journey",
+                "through the digital universe.",
+                "Discover, create, and innovate ",
+                "in this boundless world with ",
+                "my web development, designing ",
+                "and programing expertise ",
+                "Let's embark on this adventure together!",
+                "Dive into my website and",
+                "let's explore Greenatica!"
+
+            ];
+            let index = 0;
+            let textIndex = 0;
+            const maxLines = 5;
+
+            function typeText() {
+                if (textIndex < texts.length) {
+                    if (index < texts[textIndex].length) {
+                        textElement.innerHTML += texts[textIndex].charAt(index);
+                        index++;
+                        setTimeout(typeText, 90); // Adjust the speed here
+                    } else {
+                        setTimeout(() => {
+                            index = 0;
+                            textIndex++;
+                            if (textIndex % maxLines === 0) {
+                                textElement.innerHTML = ''; // Clear the text element after three lines
+                            } else {
+                                textElement.innerHTML += '<br>'; // Add a line break before the next sentence
+                            }
+                            typeText();
+                        }, 100); // Pause before starting the next sentence
+                    }
+                }
+            }
+
+            typeText();
+        });
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
